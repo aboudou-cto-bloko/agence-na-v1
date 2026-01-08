@@ -11,7 +11,7 @@ export default function Home() {
       <Navigation />
 
       <main>
-        <HeroLightWrapper videoSrc="/videos/light-rays.mp4">
+        <HeroLightWrapper videoSrc="/videos/wavy.mp4">
           <Hero
             headline="Your Competitors Are Winning Online"
             subheadline="Fix That This Week."

@@ -140,10 +140,10 @@
     --line-height-loose: 1.7;
 
     /* Letter Spacing */
-    --letter-spacing-tighter: -0.02em;
-    --letter-spacing-tight: -0.015em;
-    --letter-spacing-normal: 0;
-    --letter-spacing-wide: 0.01em;
+    --letter-spacing-tighter: -0.03em; /* Rapproché pour Anton */
+    --letter-spacing-tight: -0.025em; /* Rapproché pour Anton */
+    --letter-spacing-normal: -0.015em; /* Légèrement rapproché pour Anton */
+    --letter-spacing-wide: 0.01em; /* Inchangé pour labels */
 
     /* === COLOR SYSTEM (Override shadcn) === */
 
@@ -255,6 +255,9 @@
         --layout-padding-x: 1rem; /* 16px sur mobile */
         --layout-gap: 1rem; /* 16px sur mobile */
         --layout-gap-lg: 1.5rem;
+        --letter-spacing-tighter: -0.025em; /* Un peu moins serré sur mobile */
+        --letter-spacing-tight: -0.02em;
+        --letter-spacing-normal: -0.01em;
     }
 }
 
@@ -337,16 +340,16 @@
     h4,
     h5,
     h6 {
-        font-family: var(--font-anton); /* ← Anton pour tous les titres */
-        font-weight: 400; /* Anton n'a que regular (400) */
-        letter-spacing: -0.03em;
+        font-family: var(--font-anton);
+        font-weight: 400;
+        letter-spacing: var(--letter-spacing-tight);
     }
 
     .text-display {
         font-size: clamp(3rem, 8vw, 7rem);
         line-height: 0.95;
-        letter-spacing: -0.03em;
-        font-family: var(--font-anton); /* ← Anton pour display */
+        letter-spacing: var(--letter-spacing-tighter);
+        font-family: var(--font-anton);
     }
 }
 
@@ -360,76 +363,122 @@
 
     /* === CUSTOM TYPOGRAPHY CLASSES === */
 
-    /* Display / Hero - Utilise Anton */
     .text-hero {
         font-size: var(--font-size-hero);
-        font-weight: 400; /* Anton est toujours 400 */
+        font-weight: 400;
         line-height: var(--line-height-tight);
-        letter-spacing: var(--letter-spacing-tighter);
-        font-family: var(--font-anton); /* ← Anton */
+        letter-spacing: var(
+            --letter-spacing-tighter
+        ); /* Rapproché pour héros */
+        font-family: var(--font-anton);
     }
 
-    /* Headings - Utilisent Anton */
+    /* Headings - Anton avec espacements ajustés */
     .text-h1 {
         font-size: var(--font-size-h1);
-        font-weight: 400; /* Anton est toujours 400 */
+        font-weight: 400;
         line-height: 1;
-        letter-spacing: var(--letter-spacing-tight);
-        font-family: var(--font-anton); /* ← Anton */
+        letter-spacing: var(--letter-spacing-tight); /* Rapproché pour H1 */
+        font-family: var(--font-anton);
     }
 
     .text-h2 {
         font-size: var(--font-size-h2);
-        font-weight: 400; /* Anton est toujours 400 */
+        font-weight: 400;
         line-height: var(--line-height-snug);
-        letter-spacing: var(--letter-spacing-tight);
-        font-family: var(--font-anton); /* ← Anton */
+        letter-spacing: var(--letter-spacing-tight); /* Rapproché pour H2 */
+        font-family: var(--font-anton);
     }
 
     .text-h3 {
         font-size: var(--font-size-h3);
-        font-weight: 400; /* Anton est toujours 400 */
+        font-weight: 400;
         line-height: 1.2;
-        letter-spacing: -0.005em;
-        font-family: var(--font-anton); /* ← Anton */
+        letter-spacing: var(--letter-spacing-normal); /* Normal ajusté */
+        font-family: var(--font-anton);
     }
 
     .text-h4 {
         font-size: var(--font-size-h4);
-        font-weight: 400; /* Anton est toujours 400 */
+        font-weight: 400;
         line-height: var(--line-height-normal);
-        font-family: var(--font-anton); /* ← Anton */
+        letter-spacing: var(--letter-spacing-normal); /* Normal ajusté */
+        font-family: var(--font-anton);
     }
 
-    /* Body variants - Utilisent Manrope */
+    /* Body variants - Manrope inchangé */
     .text-body-lg {
         font-size: var(--font-size-body-lg);
         font-weight: var(--font-weight-normal);
         line-height: var(--line-height-relaxed);
-        font-family: var(--font-manrope); /* ← Manrope */
+        letter-spacing: var(--letter-spacing-normal); /* Normal pour Manrope */
+        font-family: var(--font-manrope);
     }
 
     .text-body {
         font-size: var(--font-size-body);
         font-weight: var(--font-weight-normal);
         line-height: var(--line-height-loose);
-        font-family: var(--font-manrope); /* ← Manrope */
+        letter-spacing: var(--letter-spacing-normal); /* Normal pour Manrope */
+        font-family: var(--font-manrope);
     }
 
     .text-body-sm {
         font-size: var(--font-size-body-sm);
         font-weight: var(--font-weight-normal);
         line-height: var(--line-height-relaxed);
-        font-family: var(--font-manrope); /* ← Manrope */
+        letter-spacing: var(--letter-spacing-normal); /* Normal pour Manrope */
+        font-family: var(--font-manrope);
     }
 
     .text-label {
         font-size: var(--font-size-label);
         font-weight: var(--font-weight-medium);
         line-height: 1.4;
-        letter-spacing: var(--letter-spacing-wide);
+        letter-spacing: var(--letter-spacing-wide); /* Écarté pour labels */
         text-transform: uppercase;
-        font-family: var(--font-manrope); /* ← Manrope */
+        font-family: var(--font-manrope);
+    }
+
+    @media (max-width: 768px) {
+        .text-hero {
+            font-size: 3.5rem;
+            letter-spacing: var(
+                --letter-spacing-tight
+            ); /* Moins serré sur mobile */
+        }
+
+        .text-h1 {
+            font-size: 3rem;
+            letter-spacing: var(
+                --letter-spacing-normal
+            ); /* Moins serré sur mobile */
+        }
+
+        .text-h2 {
+            font-size: 2rem;
+            letter-spacing: var(
+                --letter-spacing-normal
+            ); /* Moins serré sur mobile */
+        }
+
+        .text-h3 {
+            font-size: 1.75rem;
+            letter-spacing: var(--letter-spacing-normal);
+        }
+
+        .text-h4 {
+            font-size: 1.25rem;
+            letter-spacing: var(--letter-spacing-normal);
+        }
+
+        /* Ajustement pour les textes très grands */
+        .text-\[8rem\] {
+            font-size: 4rem;
+            letter-spacing: var(
+                --letter-spacing-normal
+            ); /* Ajusté sur mobile */
+        }
     }
 
     .bg-accent-primary {
@@ -715,23 +764,6 @@
 
     .delay-2100 {
         animation-delay: 2100ms;
-    }
-
-    @media (max-width: 768px) {
-        .text-hero {
-            font-size: 3.5rem;
-        }
-
-        .text-h1 {
-            font-size: 3rem;
-        }
-
-        .text-h2 {
-            font-size: 2rem;
-        }
-        .text-\[8rem\] {
-            font-size: 4rem; /* 64px sur très petit mobile */
-        }
     }
 }
 
