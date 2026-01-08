@@ -12,11 +12,11 @@ export default function AboutPage() {
       <Navigation />
 
       <main className="min-h-screen">
-        {/* Hero Section — Layout Z comme home */}
-        <section className="relative py-40 md:py-48">
+        {/* Hero Section */}
+        <section className="relative py-section">
           <div className="container-max max-w-5xl">
-            {/* Header — Simple et direct */}
-            <div className="mb-32">
+            {/* Header */}
+            <div className="mb-section-sm">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -25,35 +25,43 @@ export default function AboutPage() {
                 <ScrambleText
                   text="Why We Exist"
                   as="h1"
-                  className="text-display font-bold leading-none mb-8"
+                  className="text-label text-accent-primary mb-8 leading-none"
                   triggerOnView={false}
                   speed={6}
                   scrambleSpeed={4}
                 />
               </motion.div>
 
-              <motion.p
-                className="text-h3 text-muted-foreground max-w-2xl"
+              <motion.div
+                className="mb-8"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
-                We're not another agency promising the world.
-              </motion.p>
+                <ScrambleText
+                  text="We exist to turn websites into measurable business assets."
+                  as="p"
+                  className="text-h2 text-shadow-white mb-6 max-w-2xl"
+                  triggerOnView={false}
+                  speed={6}
+                  scrambleSpeed={4}
+                  delay={400}
+                />
+              </motion.div>
             </div>
 
-            {/* Content Grid — Z-Pattern */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+            {/* Content Grid */}
+            <div className="split-layout">
               {/* Left — Narrative */}
               <motion.div
-                className="space-y-12"
+                className="space-y-component"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
                 <div className="space-y-6">
-                  <h2 className="text-h2 font-bold">The Problem</h2>
-                  <p className="text-body-lg text-muted-foreground leading-relaxed">
+                  <h2 className="text-h3">The Problem</h2>
+                  <p className="text-body-lg text-gray-500 leading-relaxed">
                     Scottish businesses deserve better than bloated agencies
                     that charge £5K for templates or cheap freelancers who
                     vanish after launch.
@@ -61,16 +69,16 @@ export default function AboutPage() {
                 </div>
 
                 <div className="space-y-6">
-                  <h2 className="text-h2 font-bold">Our Approach</h2>
-                  <p className="text-body-lg text-muted-foreground leading-relaxed">
+                  <h2 className="text-h3">Our Approach</h2>
+                  <p className="text-body-lg text-gray-500 leading-relaxed">
                     We combine deep local market knowledge with
                     international-grade technical execution. Small by choice.
                     Selective by design.
                   </p>
                 </div>
 
-                <div className="pt-6 border-t border-border">
-                  <p className="text-h3 font-medium text-accent-primary">
+                <div className="pt-6 border-t border-gray-200">
+                  <p className="text-h4 text-accent-primary">
                     Most agencies sell websites. We build revenue systems.
                   </p>
                 </div>
@@ -78,23 +86,21 @@ export default function AboutPage() {
 
               {/* Right — Contact */}
               <motion.div
-                className="space-y-8"
+                className="space-y-component"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
                 <div className="space-y-8 lg:sticky lg:top-32">
-                  {/* Contact Info — Épuré */}
+                  {/* Contact Info */}
                   <div className="space-y-8">
-                    <h3 className="text-h3 font-bold">Get In Touch</h3>
+                    <h3 className="text-h3">Get In Touch</h3>
 
                     <div className="space-y-6">
                       <div>
-                        <p className="text-label text-muted-foreground mb-2">
-                          Email
-                        </p>
+                        <p className="text-label text-gray-400 mb-2">Email</p>
                         <a
-                          href="mailto:hello@nasraboudou.com"
+                          href="mailto:hello@example.com"
                           className="text-body-lg text-foreground hover:text-accent-primary transition-colors"
                         >
                           hello@example.com
@@ -102,39 +108,33 @@ export default function AboutPage() {
                       </div>
 
                       <div>
-                        <p className="text-label text-muted-foreground mb-2">
+                        <p className="text-label text-gray-400 mb-2">
                           Location
                         </p>
-                        <p className="text-body text-foreground">
-                          Scotland, United Kingdom
-                        </p>
+                        <p className="text-body">Scotland, United Kingdom</p>
                       </div>
 
                       <div>
-                        <p className="text-label text-muted-foreground mb-2">
+                        <p className="text-label text-gray-400 mb-2">
                           Response Time
                         </p>
-                        <p className="text-body text-foreground">
-                          Within 24 hours
-                        </p>
+                        <p className="text-body">Within 24 hours</p>
                       </div>
                     </div>
                   </div>
 
                   {/* CTA */}
-                  <div className="pt-8 border-t border-border space-y-4">
+                  <div className="pt-8 border-t border-gray-200 space-y-4">
                     <Button
                       variant="primary"
                       size="lg"
                       className="w-full"
                       asChild
                     >
-                      <a href="mailto:hello@nasraboudou.com">
-                        Book Strategy Call
-                      </a>
+                      <a href="mailto:hello@example.com">Book Strategy Call</a>
                     </Button>
 
-                    <div className="flex flex-col gap-3 text-body-sm text-muted-foreground">
+                    <div className="flex flex-col gap-3 text-body-sm text-gray-500">
                       <Link
                         href="/#packages"
                         className="hover:text-foreground transition-colors"
@@ -155,55 +155,117 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Values Section — Stack simple comme Features */}
-        <section className="relative py-40 md:py-48 bg-card">
+        {/* Values Section — Card centrale contrastée */}
+        <section className="relative py-section bg-gray-50 dark:bg-gray-900/30">
           <div className="container-max max-w-4xl">
-            <motion.h2
-              className="text-h1 font-bold mb-32"
-              initial={{ opacity: 0, y: 20 }}
+            {/* Carte principale */}
+            <motion.div
+              className="bg-card rounded-card shadow-lg p-8 md:p-12"
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              What We Stand For
-            </motion.h2>
+              {/* En-tête de la carte */}
+              <motion.div
+                className="mb-12 text-center"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                <span className="text-label text-accent-primary mb-4 block leading-none">
+                  OUR MANIFESTO
+                </span>
+                <h2 className="text-h2 mb-6">What We Stand For</h2>
+                <p className="text-body-lg text-gray-500 max-w-2xl mx-auto">
+                  Principles that guide every project, every decision, every
+                  client.
+                </p>
+              </motion.div>
 
-            <div className="space-y-24">
-              {[
-                {
-                  title: "No Account Managers",
-                  description:
-                    "You work directly with the people building your website. No middlemen who've never written code.",
-                },
-                {
-                  title: "No Offshore Teams",
-                  description:
-                    "Everything is built in-house. Your project isn't outsourced to the lowest bidder in a different timezone.",
-                },
-                {
-                  title: "No Bloated Overhead",
-                  description:
-                    "Small team means lower costs and faster decisions. We pass those savings to you.",
-                },
-              ].map((value, index) => (
-                <motion.div
-                  key={value.title}
-                  className="pb-24 border-b border-border last:border-0 last:pb-0"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.5 }}
-                  transition={{
-                    duration: 0.7,
-                    delay: index * 0.1,
-                  }}
+              {/* Liste des valeurs */}
+              <div className="space-y-8">
+                {[
+                  {
+                    title: "No Account Managers",
+                    description:
+                      "You work directly with the people building your website. No middlemen who've never written code.",
+                  },
+                  {
+                    title: "No Offshore Teams",
+                    description:
+                      "Everything is built in-house. Your project isn't outsourced to the lowest bidder in a different timezone.",
+                  },
+                  {
+                    title: "No Bloated Overhead",
+                    description:
+                      "Small team means lower costs and faster decisions. We pass those savings to you.",
+                  },
+                  {
+                    title: "No Vanity Metrics",
+                    description:
+                      "We measure success by leads, sales, and ROI—not just traffic and bounce rates.",
+                  },
+                  {
+                    title: "No Lock-in Contracts",
+                    description:
+                      "You own your website 100%. No monthly fees to keep it live. No hidden charges.",
+                  },
+                ].map((value, index) => (
+                  <motion.div
+                    key={value.title}
+                    className="pb-8 border-b border-gray-100 dark:border-gray-800 last:border-0 last:pb-0"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{
+                      duration: 0.6,
+                      delay: 0.3 + index * 0.1,
+                      ease: "easeOut",
+                    }}
+                  >
+                    <div className="flex gap-6">
+                      {/* Indicateur visuel */}
+                      <div className="flex-shrink-0">
+                        <div className="w-10 h-10 rounded-full bg-accent-primary/10 flex items-center justify-center">
+                          <div className="w-2 h-2 bg-accent-primary rounded-full" />
+                        </div>
+                      </div>
+
+                      {/* Contenu */}
+                      <div className="flex-1">
+                        <h3 className="text-h4 mb-3">{value.title}</h3>
+                        <p className="text-body text-gray-500 leading-relaxed">
+                          {value.description}
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Footer de la carte */}
+              <motion.div
+                className="mt-12 pt-8 border-t border-gray-100 dark:border-gray-800 text-center"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+              >
+                <p className="text-body-lg text-gray-500 mb-6">
+                  Ready to work with a different kind of agency?
+                </p>
+                <Button
+                  variant="primary"
+                  size="lg"
+                  asChild
+                  className="shadow-md"
                 >
-                  <h3 className="text-h2 font-bold mb-4">{value.title}</h3>
-                  <p className="text-body-lg text-muted-foreground leading-relaxed">
-                    {value.description}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
+                  <Link href="/contact">Start Your Project</Link>
+                </Button>
+              </motion.div>
+            </motion.div>
           </div>
         </section>
       </main>

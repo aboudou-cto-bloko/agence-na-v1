@@ -1,4 +1,5 @@
 "use client";
+
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -26,81 +27,76 @@ export function Hero({
 }: HeroProps) {
   return (
     <section className="relative min-h-[85vh] flex items-center">
-      <div className="container-max w-full py-20 md:py-32">
-        {/* Grid Layout Z-Pattern */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          {/* LEFT SIDE — Headline (Point focal principal) */}
+      <div className="container-max w-full py-section">
+        {/* Layout en deux colonnes */}
+        <div className="split-layout">
+          {/* COLONNE GAUCHE — Titre et sous-titre */}
           <motion.div
-            className="lg:col-span-7"
+            className="space-y-component"
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.9, ease: "easeOut" }}
           >
-            <h1
-              className="text-display font-bold leading-[0.95] tracking-tight mb-8"
-              style={{
-                color: "#ffffff",
-                WebkitTextStroke: "1px rgba(0, 0, 0, 0.2)",
-                textShadow: `
-                  0 2px 12px rgba(0, 0, 0, 0.9),
-                  0 4px 24px rgba(0, 0, 0, 0.7),
-                  0 8px 40px rgba(0, 0, 0, 0.5)
-                `,
-              }}
+            {/* Titre principal */}
+            <motion.h1
+              className="text-h1 text-balance"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, delay: 0.2 }}
             >
               {headline}
-            </h1>
+            </motion.h1>
 
-            {/* Subheadline sous headline (hiérarchie) */}
+            {/* Sous-titre */}
             <motion.h2
-              className="text-h2 font-medium text-white/90 max-w-xl"
-              style={{
-                textShadow: `0 2px 8px rgba(0, 0, 0, 0.7)`,
-              }}
+              className="text-h3 text-gray-500 text-pretty max-w-lg"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
             >
               {subheadline}
             </motion.h2>
           </motion.div>
 
-          {/* RIGHT SIDE — Body + CTAs (Bloc distinct) */}
+          {/* COLONNE DROITE — Texte et CTAs */}
           <motion.div
-            className="lg:col-span-5 space-y-10"
+            className="space-y-component-lg"
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.9, delay: 0.3, ease: "easeOut" }}
           >
-            {/* Body text avec respiration */}
+            {/* Texte de description */}
             <div className="space-y-6">
-              <p
-                className="text-body-lg leading-relaxed text-white/85"
-                style={{
-                  textShadow: `0 2px 6px rgba(0, 0, 0, 0.8)`,
-                }}
-              >
+              <p className="text-body-lg text-shadow-white text-pretty leading-relaxed">
                 {bodyText}
               </p>
 
-              <p
-                className="text-body leading-relaxed text-white/70"
-                style={{
-                  textShadow: `0 2px 6px rgba(0, 0, 0, 0.8)`,
-                }}
-              >
-                Built for Scottish businesses tired of agencies that waste time
-                and money.
-              </p>
+              {/* Liste des spécialités */}
+              <ul className="grid grid-cols-2 gap-4 pt-4">
+                {["Web Development", "Brand Identity", "SEO Strategy"].map(
+                  (item, index) => (
+                    <motion.li
+                      key={index}
+                      className="flex items-center gap-3"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.5 + index * 0.05 }}
+                    >
+                      <div className="w-2 h-2 bg-accent-primary rounded-full" />
+                      <span className="text-body-sm text-white">{item}</span>
+                    </motion.li>
+                  ),
+                )}
+              </ul>
             </div>
 
-            {/* CTAs — Clear action zone */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+            {/* CTAs */}
+            <div className="flex flex-col sm:flex-row gap-4 pt-8">
               <Button
                 variant="primary"
                 size="lg"
                 asChild
-                className="shadow-2xl"
+                className="shadow-lg hover-lift"
               >
                 <Link href={primaryCTA.href}>{primaryCTA.text}</Link>
               </Button>
@@ -110,10 +106,7 @@ export function Hero({
                   variant="outline"
                   size="lg"
                   asChild
-                  className="border-white/40 text-white hover:bg-white/10 backdrop-blur-sm"
-                  style={{
-                    textShadow: "0 2px 4px rgba(0, 0, 0, 0.6)",
-                  }}
+                  className="border-gray-300 hover:border-accent-primary transition-base"
                 >
                   <Link href={secondaryCTA.href}>{secondaryCTA.text}</Link>
                 </Button>
