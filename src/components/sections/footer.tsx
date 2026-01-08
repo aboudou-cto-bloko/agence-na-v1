@@ -65,7 +65,7 @@ export function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            © 2025 Nasr & Aboudou
+            © 2025 N&A
           </motion.p>
         </motion.div>
       </div>
