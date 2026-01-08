@@ -3,6 +3,7 @@ import { Hero } from "@/components/sections/hero";
 import { HeroLightWrapper } from "@/components/effects/hero-light-wrapper";
 import { Features } from "@/components/sections/features";
 import { Packages } from "@/components/sections/packages";
+import { SitePerformance } from "@/components/sections/live-perfomance";
 
 export default function Home() {
   return (
@@ -27,7 +28,7 @@ export default function Home() {
         </HeroLightWrapper>
 
         <Features />
-
+        <SitePerformance />
         <Packages
           headline="Two Paths. One Outcome: More Clients."
           packages={[
